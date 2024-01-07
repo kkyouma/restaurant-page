@@ -6,7 +6,19 @@ const rulesForStyles = {
   use: ['style-loader', 'css-loader']
 }
 
-const rules = [rulesForStyles]
+const rulesForImages = {
+  test: /\.(svg|png|jpg|gif)$/,
+  use: {
+    loader: "file-loader",
+    options: {
+      esModule: false,
+      name: "[name].[hash].[ext]",
+      outputPath: "assets/img"
+    }
+  }
+}
+
+const rules = [rulesForStyles, rulesForImages]
 
 module.exports = {
   entry: './src/index.js', 
