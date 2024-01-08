@@ -29,7 +29,7 @@ const header = function (){
     return button
   } 
 
-  const homeButton = createButton('Home');
+  const homeButton = createButton('home');
   const menuButton = createButton('Menu');
   const aboutButton = createButton('About');
 

@@ -30,6 +30,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: './src/index.html' }),
   ],
   module: { rules },
+  devtool: 'source-map',
   devServer: {
     open: true
   }

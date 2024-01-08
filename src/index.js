@@ -1,20 +1,21 @@
 import './styles/styles.css'
 import header from './js/header.js'
 
-import home from './js/home.js'
+import renderHome from './js/home.js'
 import about from './js/about.js'
 import menu from './js/menu.js'
 
 import firstLoad from './js/firstLoad.js'
+import renderMenu from './js/menu.js'
 
 firstLoad()
 
-const homeBtn = document.querySelector('#home-btn');
+const renderHomeBtn = document.querySelector('#home-btn');
 const aboutBtn = document.querySelector('#about-btn');
 const menuBtn = document.querySelector('#menu-btn');
 
-homeBtn.addEventListener('click', () => {
-  home()
+renderHomeBtn.addEventListener('click', () => {
+  renderHome()
 });
 
 aboutBtn.addEventListener('click', () => {
@@ -22,5 +23,5 @@ aboutBtn.addEventListener('click', () => {
 });
 
 menuBtn.addEventListener('click', () => {
-  menu()
+  renderMenu()
 });
