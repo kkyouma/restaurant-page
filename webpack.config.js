@@ -2,23 +2,19 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const rulesForStyles = {
-  test: /\.css$/,
-  use: ['style-loader', 'css-loader']
+  test: /\.css$/i,
+  use: ['style-loader', 'css-loader'],
 }
 
 const rulesForImages = {
   test: /\.(svg|png|jpg|gif)$/,
-  use: {
-    loader: "file-loader",
-    options: {
-      esModule: false,
-      name: "[name].[hash].[ext]",
-      outputPath: "assets/img"
-    }
+  type: 'asset/resource',
+  generator: {
+    filename: 'assets/img/[name][ext]'
   }
 }
 
-const rules = [rulesForStyles, rulesForImages]
+const rules = [rulesForStyles, rulesForImages] 
 
 module.exports = {
   entry: './src/index.js', 
@@ -32,6 +28,6 @@ module.exports = {
   module: { rules },
   devtool: 'source-map',
   devServer: {
-    open: true
+     open: true
   }
 };
