@@ -36,7 +36,8 @@ body {
 }
 
 h1 {
-  color: #f0f0f0; 
+  color: #f0f0f0;
+  margin-top: 0px;
 }
 
 section {
@@ -81,7 +82,7 @@ button:hover {
 button:active {
   transform: scale(0.95); 
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;;AAEA;EACE;yCACuC;EACvC,UAAU;EACV,SAAS;EACT,aAAa;EACb,sBAAsB;EACtB,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,sBAAsB;EACtB,sBAAsB;AACxB;;AAEA;EACE,gBAAgB;EAChB,UAAU;AACZ;;AAEA;EACE,kBAAkB;EAClB,WAAW;AACb;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,YAAY;EACZ,YAAY;AACd;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,aAAa;EACb,YAAY;EACZ,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,sBAAsB;AACxB","sourcesContent":["* {\n  box-sizing: border-box;\n}\n\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\",\n      \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  padding: 0;\n  margin: 0;\n  height: 100vh; \n  background-color: #222;\n  color: #f0f0f0; \n}\n\nh1 {\n  color: #f0f0f0; \n}\n\nsection {\n  padding: 20px;\n  margin: 20px;\n  border: 1px solid #555; \n  background-color: #333; \n}\n\nul {\n  list-style: none;\n  padding: 0;\n}\n\nli {\n  margin-bottom: 5px;\n  color: #ddd; \n}\n\n#content {\n  margin: 0;\n}\n\nimg {\n  width: 200px;\n  height: auto;\n}\n\nbutton {\n  background-color: #007bff; \n  color: #fff; \n  padding: 10px;\n  border: none;\n  cursor: pointer;\n  font-size: 16px;\n}\n\nbutton:hover {\n  background-color: #0056b3; \n}\n\nbutton:active {\n  transform: scale(0.95); \n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB;;AAEA;EACE;yCACuC;EACvC,UAAU;EACV,SAAS;EACT,aAAa;EACb,sBAAsB;EACtB,cAAc;AAChB;;AAEA;EACE,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,sBAAsB;EACtB,sBAAsB;AACxB;;AAEA;EACE,gBAAgB;EAChB,UAAU;AACZ;;AAEA;EACE,kBAAkB;EAClB,WAAW;AACb;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,YAAY;EACZ,YAAY;AACd;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,aAAa;EACb,YAAY;EACZ,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,sBAAsB;AACxB","sourcesContent":["* {\n  box-sizing: border-box;\n}\n\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\",\n      \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  padding: 0;\n  margin: 0;\n  height: 100vh; \n  background-color: #222;\n  color: #f0f0f0; \n}\n\nh1 {\n  color: #f0f0f0;\n  margin-top: 0px;\n}\n\nsection {\n  padding: 20px;\n  margin: 20px;\n  border: 1px solid #555; \n  background-color: #333; \n}\n\nul {\n  list-style: none;\n  padding: 0;\n}\n\nli {\n  margin-bottom: 5px;\n  color: #ddd; \n}\n\n#content {\n  margin: 0;\n}\n\nimg {\n  width: 200px;\n  height: auto;\n}\n\nbutton {\n  background-color: #007bff; \n  color: #fff; \n  padding: 10px;\n  border: none;\n  cursor: pointer;\n  font-size: 16px;\n}\n\nbutton:hover {\n  background-color: #0056b3; \n}\n\nbutton:active {\n  transform: scale(0.95); \n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -558,11 +559,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const about = function () {
+const renderAbout = function () {
+  const main = document.getElementById('main');
+
+  main.innerHTML = '';
+
+  const section = document.createElement('section');
+  section.textContent = 'About'
+  main.appendChild(section)
+
   return console.log("About page")
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (about);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderAbout);
 
 /***/ }),
 
@@ -583,11 +592,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const firstLoad = function (){
+  
   const content = document.getElementById('content');
   const headerContent = (0,_header_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
   content.appendChild(headerContent);
 
-  (0,_home_js__WEBPACK_IMPORTED_MODULE_1__["default"])()
+  const main = document.createElement('main')
+  main.id = 'main'
+  content.appendChild(main)
+
+  ;(0,_home_js__WEBPACK_IMPORTED_MODULE_1__["default"])()
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (firstLoad);
@@ -614,37 +628,26 @@ const header = function (){
   headerElement.id = 'header'
 
   const logoContainer = document.createElement('div');
-  const restaurantName = document.createElement('h1')
-  restaurantName.textContent = 'Restaurant Name!'
-  restaurantName.appendChild(logoContainer)
-  logoContainer.appendChild(headerElement)
+  const restaurantName = document.createElement('h1');
+  restaurantName.textContent = 'Restaurant Name!';
+  logoContainer.appendChild(restaurantName);
+  headerElement.appendChild(logoContainer);
 
   const buttonsContainer = document.createElement('div');
-  buttonsContainer.classList.add('container');
-  headerElement.appendChild(buttonsContainer)
+  buttonsContainer.classList.add('flex-container');
+  headerElement.appendChild(buttonsContainer);
 
-  // const headerLogo = document.createElement('img');
-  // headerLogo.src = restaurantLogo;
-  // headerLogo.alt = "Restaurant Logo";
-  // headerLogo.classList.add = ('image')
-
-  // headerElement.appendChild(headerLogo);
-
-  const createButton = (text) => {
+  const createButton = (btnName) => {
     const button = document.createElement('button');
-    button.textContent = text;
-    button.classList.add('header-btn');
-    button.id = `${text.toLowerCase()}-btn`;
-    return button
+    button.textContent = `${btnName}`;
+    button.classList.add('header-btn', `${btnName.toLowerCase()}-btn`);
+    button.id = `${btnName.toLowerCase()}-btn`;
+    buttonsContainer.appendChild(button);
   } 
 
-  const renderHomeButton = createButton('renderHome');
+  const homeButton = createButton('Home');
   const menuButton = createButton('Menu');
   const aboutButton = createButton('About');
-
-  buttonsContainer.appendChild(renderHomeButton);
-  buttonsContainer.appendChild(menuButton);
-  buttonsContainer.appendChild(aboutButton);
 
   return headerElement
 }
@@ -669,13 +672,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const renderHome = function () {
-  const content =  document.getElementById('content');
+  const main = document.getElementById('main');
 
-  const main = document.createElement('main')
-  main.id = 'main'
-  content.appendChild(main)
+  main.innerHTML = '';
 
-  return console.log("Home page")
+  const section = document.createElement('section');
+  section.textContent = 'Home';
+  main.appendChild(section);
+
+  const welcomeH2 = document.createElement('h2');
+  welcomeH2.textContent = 'Welcome to'
+  section.appendChild(welcomeH2)
+
+  const welcomeH1 = document.createElement('h1');
+  welcomeH1.textContent = 'Our Restaurant'
+  section.appendChild(welcomeH1)
+
+  const menuButton = document.createElement('button');
+  menuButton.textContent = 'Menu';
+  menuButton.classList.add('menu-btn');
+  menuButton.id = 'main-menu-btn'
+  section.appendChild(menuButton)  
+  
+
+  return console.log("Home page");
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderHome);
@@ -693,11 +713,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const menu = function () {
+const renderMenu = function () {
+  const main = document.getElementById('main');
+
+  main.innerHTML = '';
+
+  const section = document.createElement('section');
+  section.textContent = 'Menu'
+  main.appendChild(section)
+
   return console.log("Menu page")
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menu);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderMenu);
 
 /***/ })
 
@@ -836,7 +864,6 @@ __webpack_require__.r(__webpack_exports__);
 
 const renderHomeBtn = document.querySelector('#home-btn');
 const aboutBtn = document.querySelector('#about-btn');
-const menuBtn = document.querySelector('#menu-btn');
 
 renderHomeBtn.addEventListener('click', () => {
   (0,_js_home_js__WEBPACK_IMPORTED_MODULE_2__["default"])()
@@ -845,6 +872,9 @@ renderHomeBtn.addEventListener('click', () => {
 aboutBtn.addEventListener('click', () => {
   (0,_js_about_js__WEBPACK_IMPORTED_MODULE_3__["default"])()
 });
+
+(0,_js_home_js__WEBPACK_IMPORTED_MODULE_2__["default"])()
+const menuBtn = document.querySelector('.menu-btn');
 
 menuBtn.addEventListener('click', () => {
   (0,_js_menu_js__WEBPACK_IMPORTED_MODULE_4__["default"])()

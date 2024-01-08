@@ -16,13 +16,13 @@ const header = function (){
 
   const createButton = (btnName) => {
     const button = document.createElement('button');
-    button.textContent = btnName;
-    button.classList.add('header-btn');
+    button.textContent = `${btnName}`;
+    button.classList.add('header-btn', `${btnName.toLowerCase()}-btn`);
     button.id = `${btnName.toLowerCase()}-btn`;
     buttonsContainer.appendChild(button);
   } 
 
-  const homeButton = createButton('home');
+  const homeButton = createButton('Home');
   const menuButton = createButton('Menu');
   const aboutButton = createButton('About');
 
