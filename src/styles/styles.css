@@ -1,51 +1,72 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: black; /* Fondo principal */
+    --bg-color2: rgb(29, 29, 29); /* Fondo secundario */
+    --bg-color2-rgb: 	17, 7, 2;
+    --bg-color3: #36120d; /* Fondo terciario */
+    --bg-color4: #290b0b; /* Fondo cuaternario */
+    --color1: #8c3e1e; /* Color principal */
+    --color2: #a14a26; /* Color secundario */
+    --color3: #c46638; /* Color terciario */
+    --color4: #e1864a; /* Color cuaternario */
+    --color5: #f3a761; /* Color quinario */
+    --color6: #fbd2ab; /* Color senario */
+    --accent-color: #e82a2a; /* Color de acento (rojo-anaranjado) */
+    --text-color: #fff; /* Color de texto */
+  }
+}
+
+:root.light {
+  --bg-color: #fbd2ab; /* Fondo principal en modo claro */
+  --bg-color2: #f3a761; /* Fondo secundario en modo claro */
+  --bg-color3: #e1864a; /* Fondo terciario en modo claro */
+  --bg-color4: #c46638; /* Fondo cuaternario en modo claro */
+  --color1: #734022; /* Color principal en modo claro */
+  --color2: #a14a26; /* Color secundario en modo claro */
+  --color3: #8c3e1e; /* Color terciario en modo claro */
+  --color4: #5e2d17; /* Color cuaternario en modo claro */
+  --color5: #4d2410; /* Color quinario en modo claro */
+  --color6: #3c1a08; /* Color senario en modo claro */
+  --accent-color: #e82a2a; /* Color de acento (rojo-anaranjado) en modo claro */
+  --text-color: #030712; /* Color de texto en modo claro */
+}
+
+@font-face {
+  font-family: 'Cadarville';
+  src: url(../assets/fonts/CedarvilleCursive-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HomeMade';
+  src: url(../assets/fonts/HomemadeApple-Regular.ttf);
+  font-weight: 800;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #030712;
-    --bg-color2: #111827;
-    --bg-color3: #1f2937;
-    --bg-color4: #374151;
-    --color1: #4b5563;
-    --color2: #6b7280;
-    --color3: #9ca3af;
-    --color4: #d1d5db;
-    --color5: #e5e7eb;
-    --color6: #f3f4f6;
-    --accent-color: #22d3ee;
-    --text-color: #f9fafb;
-  }
-}
-
-:root.light {
-  --bg-color: #f3f4f6;
-  --bg-color2: #e5e7eb;
-  --bg-color3: #f9fafb;
-  --bg-color4: #d1d5db;
-  --color1: #9ca3af;
-  --color2: #6b7280;
-  --color3: #4b5563;
-  --color4: #374151;
-  --color5: #1f2937;
-  --color6: #111827;
-  --accent-color: #22d3ee;
-  --text-color: #030712;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100vh; 
-  background-color: var(--bg-color);
+  width: 100vw;
   color: var(--text-color); 
+  background-image: url('../assets/img/restaurant-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;  
 }
 
 #content {
-  display: grid;
   height: 100%;
+  display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: 
@@ -54,12 +75,26 @@ body {
 }
 
 header {
-  max-height: 100px;
-  background-color: var(--bg-color3);
+  padding: 0 30px;
+  max-height: 80px;
+  min-height: 80px;
+  background-color: var(--bg-color);
   grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+div.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 
 main {
+  gap: 0;
   display: grid;
   align-items: start;
   grid-template-rows: repeat(3, 1fr);
@@ -67,12 +102,53 @@ main {
   grid-area: main;
 }
 
-section {
+main > section {
   padding: 20px;
-  margin: 20px;
-  border: 1px solid var(--accent-color); 
-  background-color: var(--bg-color2); 
+  background-color: rgba(var(--bg-color2-rgb), 0.5);
+  height: 100%;
+  border-bottom: 1px solid rgb(29, 29, 29)
 }
+
+main > section.home {
+  border: none;
+  grid-row: 1/-1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  background-color: rgba(var(--bg-color2-rgb), 0.5);
+}
+
+main.home {
+  grid-column: 1/-1;
+}
+
+main.about {
+  grid-column: 1/-1;
+}
+
+main.menu {
+  grid-column: 2/3;
+}
+
+section.home > h2 {
+  font-family: 'HomeMade';
+}
+
+section.menu {
+  background-color: black;
+}
+
+section.menu > h2, h3, ul, li, p {
+  margin-bottom: 1em;
+}
+
+section.menu li {
+  border: 1px solid var(--bg-color2);
+  padding: 15px
+}
+
 
 ul {
   list-style: none;
@@ -84,6 +160,10 @@ li {
   color: var(--text-color); 
 }
 
+li:hover {
+  background-color: var(--bg-color4);
+  cursor: pointer;
+}
 
 
 img {
@@ -92,16 +172,26 @@ img {
 }
 
 button {
-  background-color: var(--bg-color3); 
-  color: #fff; 
+  background-color: var(--bg-color); 
+  color: var(--text-color); 
   padding: 10px;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   font-size: 16px;
 }
 
+button#main-menu-btn {
+  font-size: 0.5em;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+button#main-menu-btn:hover {
+  background-color: var(--accent-color);
+}
+
 button:hover {
-  background-color: var(--accent-color); 
+  border: 1px solid var(--accent-color);
 }
 
 button:active {

@@ -14,13 +14,16 @@ const aboutBtn = document.querySelector('#about-btn');
 const menuBtn = document.querySelector('.menu-btn');
 
 renderHomeBtn.addEventListener('click', () => {
+  main.classList.remove('about', 'menu', 'home');
   renderHome()
 });
 
 aboutBtn.addEventListener('click', () => {
+  main.classList.remove('about', 'menu', 'home');
   renderAbout()
 });
 
 menuBtn.addEventListener('click', () => {
+  main.classList.remove('about', 'menu', 'home');
   renderMenu()
 });

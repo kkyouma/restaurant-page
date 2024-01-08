@@ -1,16 +1,18 @@
+import restaurantTeam from "../assets/img/restaurant-about.jpg";
+
+
 const renderAbout = function () {
   const main = document.getElementById('main');
+  main.classList.add('about');
 
   main.innerHTML = '';
 
-  const section = document.createElement('section');
-
   const aboutUsData = [
-    {
-        type: "image",
-        src: "restaurant-team.jpg",
-        alt: "Restaurant Team"
-    },
+    // {
+    //     type: "image",
+    //     src: restaurantTeam,
+    //     alt: "Restaurant Team"
+    // },
     {
         type: "section",
         title: "Our Story",

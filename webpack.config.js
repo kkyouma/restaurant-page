@@ -14,7 +14,15 @@ const rulesForImages = {
   }
 }
 
-const rules = [rulesForStyles, rulesForImages] 
+const rulesForFonts = {
+  test: /\.(woff|woff2|eot|ttf|otf)$/i,
+  type: 'asset/resource',
+  generator: {
+    filename: 'assets/fonts/[name][ext]'
+  }
+}
+
+const rules = [rulesForStyles, rulesForImages, rulesForFonts] 
 
 module.exports = {
   entry: './src/index.js', 
@@ -26,7 +34,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: './src/index.html' }),
   ],
   module: { rules },
-  devtool: 'source-map',
+  // devtool: 'source-map',
   devServer: {
      open: true
   }

@@ -1,12 +1,14 @@
 import renderMenu from "./menu.js";
 
+
 const renderHome = function () {
   const main = document.getElementById('main');
+  main.classList.add('home');
 
   main.innerHTML = '';
 
   const section = document.createElement('section');
-  section.textContent = 'Home';
+  section.classList.add('home');
   main.appendChild(section);
 
   const welcomeH2 = document.createElement('h2');
